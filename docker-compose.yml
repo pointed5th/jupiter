@@ -2,7 +2,7 @@ version: "3"
 services:
   hapi-fhir-jpaserver-start:
     build: .
-    container_name: hapi-fhir-jpaserver-start
+    container_name: jupiter-server
     restart: on-failure
     ports:
       - "8080:8080"

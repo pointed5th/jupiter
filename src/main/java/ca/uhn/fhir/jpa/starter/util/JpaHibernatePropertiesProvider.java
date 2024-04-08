@@ -12,9 +12,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 public class JpaHibernatePropertiesProvider extends HibernatePropertiesProvider {
-
 	private final Dialect dialect;
-
 	public JpaHibernatePropertiesProvider(LocalContainerEntityManagerFactoryBean myEntityManagerFactory) {
 		DataSource connection = myEntityManagerFactory.getDataSource();
 		try (Connection dbConnection = connection.getConnection()) {

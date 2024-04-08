@@ -40,16 +40,6 @@ import org.springframework.context.annotation.Import;
 	Batch2JobsConfig.class
 })
 public class Application extends SpringBootServletInitializer {
-
-	public static void main(String[] args) {
-
-		SpringApplication.run(Application.class, args);
-
-		// Server is now accessible at eg. http://localhost:8080/fhir/metadata
-		// UI is now accessible at http://localhost:8080/
-	}
-
-
 	@Autowired
 	AutowireCapableBeanFactory beanFactory;
 
@@ -59,10 +49,13 @@ public class Application extends SpringBootServletInitializer {
 		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
 		beanFactory.autowireBean(restfulServer);
 		servletRegistrationBean.setServlet(restfulServer);
-		servletRegistrationBean.addUrlMappings("/fhir/*");
+		servletRegistrationBean.addUrlMappings("/fhirx/*");
 		servletRegistrationBean.setLoadOnStartup(1);
 
 		return servletRegistrationBean;
 	}
 
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
 }
